@@ -14,7 +14,8 @@ module.exports = function(options) {
   var options = defaults(options || {}, {
     log: false,
     ext: false,
-    use_external: false
+    use_external: false,
+	only_media: false
   });
 
   // Log info only when 'options.log' is set to true
@@ -93,11 +94,17 @@ module.exports = function(options) {
   // Process media queries
   var processMedia = function(media) {
     var strCss = '';
-    strCss += '@media ' + media.rule + ' {\n\n';
-    media.rules.forEach(function(rule) {
-      strCss += commentOrRule(rule);
-    });
-    strCss += '}\n\n';
+	if(!options.only_media) {
+		strCss += '@media ' + media.rule + ' {\n\n';
+		media.rules.forEach(function(rule) {
+		  strCss += commentOrRule(rule);
+		});
+		strCss += '}\n\n';
+	}
+	else
+	{
+		strCss += '  @media ' + media.rule;
+	}
     log('  @media ' + media.rule);
 
     return strCss;
