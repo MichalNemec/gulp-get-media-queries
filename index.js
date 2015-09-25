@@ -149,7 +149,8 @@ module.exports = function(options) {
     processedCSS.media.blank = [];
     processedCSS.keyframes = [];
 
-    file.contents = new Buffer(cssJson);
+	//Fix for TypeError: must start with number, buffer, array or string
+    //file.contents = new Buffer(cssJson);
 
     // For every rule in the stylesheet...
     cssJson.stylesheet.rules.forEach(function(rule) {
