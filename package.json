@@ -1,7 +1,7 @@
 {
   "name": "gulp-get-media-queries",
   "description": "Combine matching media queries into one media query file.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/MichalNemec/gulp-combine-media-queries",
   "repository": {
     "type": "git",
